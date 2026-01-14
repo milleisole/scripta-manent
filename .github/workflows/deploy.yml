@@ -1,0 +1,72 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Build distribution
+        run: |
+          # Determine version from branch
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          
+          if [ "$BRANCH_NAME" = "main" ]; then
+            VERSION="latest"
+          elif [[ "$BRANCH_NAME" == release/* ]]; then
+            VERSION="${BRANCH_NAME#release/}"
+          else
+            VERSION="$BRANCH_NAME"
+          fi
+          
+          echo "Building version: $VERSION"
+          
+          # Create dist directory structure
+          mkdir -p "dist/$VERSION"
+          
+          # Copy src to dist/VERSION
+          cp -r src/* "dist/$VERSION/"
+          
+          # Update version in manifest.json if it exists
+          if [ -f "dist/$VERSION/manifest.json" ]; then
+            sed -i "s/\"version\": \".*\"/\"version\": \"${VERSION#v}\"/" "dist/$VERSION/manifest.json"
+          fi
+          
+          echo "Build complete for version $VERSION"
+          ls -la "dist/$VERSION"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
