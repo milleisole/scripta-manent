@@ -74,21 +74,34 @@ scripta-manent/
 | `src/` | Active development, work here |
 | `dist/vX.Y/` | Stable releases for distribution |
 
-**Creating a release:**
+**Automated Deployment:**
+
+The project uses GitHub Actions for automated deployment to GitHub Pages. The workflow is triggered when:
+- Changes are pushed to the `main` branch (deploys as version "latest")
+- Changes are pushed to any `release/*` branch (deploys with the branch name as version, e.g., `release/v1.1` → version "v1.1")
+
+The workflow automatically:
+1. Builds the distribution from `src/`
+2. Updates version numbers in manifest.json
+3. Deploys to GitHub Pages
+
+**Manual Local Build (optional):**
+
+For local testing, you can still use the build script from the `src/` directory:
 
 ```bash
+cd src
 ./build.sh v1.0
 ```
 
-This copies `src/` to `dist/v1.0/`, ready for deployment.
+This copies `src/` to `../dist/v1.0/`, ready for manual deployment or testing.
 
-### Deployment URL
+### Deployment URLs
 
 The app is hosted on GitHub Pages:
 
-```
-https://milleisole.github.io/scripta-manent/dist/v1.0/index.html
-```
+- Latest version (from main branch): `https://milleisole.github.io/scripta-manent/dist/latest/index.html`
+- Specific versions: `https://milleisole.github.io/scripta-manent/dist/v1.0/index.html`
 
 ---
 
@@ -392,9 +405,22 @@ export const CONFIG = {
 };
 ```
 
-### 4. Deploy
+### 4. Enable GitHub Pages
 
-Upload all files to your web server. That's it.
+To enable automated deployment:
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings** > **Pages**
+3. Under "Build and deployment":
+   - Source: **GitHub Actions**
+4. Push changes to the `main` branch or create a `release/*` branch
+5. The GitHub Actions workflow will automatically build and deploy
+
+The workflow (`.github/workflows/deploy.yml`) handles everything automatically.
+
+### 5. Manual Deploy (Alternative)
+
+If you prefer manual deployment, upload all files to your web server.
 
 For local development:
 ```bash

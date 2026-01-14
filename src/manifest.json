@@ -1,6 +1,7 @@
 {
   "name": "Scripta Manent",
   "short_name": "Scripta",
+  "version": "1.0.0",
   "description": "Le tue note e file, nel tuo Google Drive. Privacy-first.",
   "start_url": "/",
   "display": "standalone",
