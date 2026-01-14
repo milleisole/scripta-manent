@@ -55,7 +55,7 @@ scripta-manent/
 
 ---
 
-## Data Structure on Google Drive
+## Data Structure on (your) Google Drive
 
 When you connect scripta-manent to your Google Drive, it creates this folder structure:
 
