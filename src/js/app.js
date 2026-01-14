@@ -345,9 +345,15 @@ class App {
     showLoginScreen() {
         const loginScreen = document.getElementById('login-screen');
         const appScreen = document.getElementById('app');
+        const loadingScreen = document.getElementById('loading-screen');
 
         if (loginScreen) loginScreen.classList.remove('hidden');
         if (appScreen) appScreen.classList.add('hidden');
+
+        // Nascondi loading screen con animazione fade-out
+        if (loadingScreen) {
+            loadingScreen.classList.add('fade-out');
+        }
 
         // Gestisci click su login
         const loginBtn = document.getElementById('login-btn');
@@ -362,9 +368,15 @@ class App {
     showApp() {
         const loginScreen = document.getElementById('login-screen');
         const appScreen = document.getElementById('app');
+        const loadingScreen = document.getElementById('loading-screen');
 
         if (loginScreen) loginScreen.classList.add('hidden');
         if (appScreen) appScreen.classList.remove('hidden');
+
+        // Nascondi loading screen con animazione fade-out
+        if (loadingScreen) {
+            loadingScreen.classList.add('fade-out');
+        }
 
         // Aggiorna info utente nella sidebar
         this.updateUserInfo();
