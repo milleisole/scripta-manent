@@ -87,14 +87,14 @@ The workflow automatically:
 
 **Manual Local Build (optional):**
 
-For local testing, you can still use the build script:
+For local testing, you can still use the build script from the `src/` directory:
 
 ```bash
 cd src
 ./build.sh v1.0
 ```
 
-This copies `src/` to `dist/v1.0/`, ready for manual deployment or testing.
+This copies `src/` to `../dist/v1.0/`, ready for manual deployment or testing.
 
 ### Deployment URLs
 
