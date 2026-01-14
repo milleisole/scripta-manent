@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Genera Icone PWA</title>
+    <style>
+        body { font-family: system-ui; padding: 20px; }
+        .icons { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; }
+        .icon-item { text-align: center; }
+        canvas { border: 1px solid #ddd; border-radius: 8px; }
+        button { padding: 10px 20px; margin: 10px 5px; cursor: pointer; }
+        a { display: inline-block; margin-top: 5px; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>Generatore Icone PWA - Scripta Manent</h1>
+    <p>Clicca su ogni icona per scaricarla come PNG.</p>
+    <button onclick="downloadAll()">Scarica Tutte le Icone</button>
+    <div class="icons" id="icons"></div>
+
+    <script>
+        const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+        const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg-gradient)"/>
+  <g transform="translate(96, 64)">
+    <path d="M240 0H80C53.5 0 32 21.5 32 48v288c0 26.5 21.5 48 48 48h160c26.5 0 48-21.5 48-48V80L240 0z" fill="white" opacity="0.95"/>
+    <path d="M240 0v48c0 17.7 14.3 32 32 32h48L240 0z" fill="white" opacity="0.7"/>
+    <rect x="72" y="120" width="160" height="12" rx="6" fill="#6366f1" opacity="0.3"/>
+    <rect x="72" y="152" width="120" height="12" rx="6" fill="#6366f1" opacity="0.3"/>
+    <rect x="72" y="184" width="140" height="12" rx="6" fill="#6366f1" opacity="0.3"/>
+    <rect x="72" y="216" width="100" height="12" rx="6" fill="#6366f1" opacity="0.3"/>
+    <g transform="translate(180, 200) rotate(45)">
+      <rect x="0" y="0" width="24" height="120" rx="4" fill="#f59e0b"/>
+      <polygon points="12,120 0,144 24,144" fill="#374151"/>
+      <rect x="0" y="0" width="24" height="20" rx="4" fill="#fbbf24"/>
+    </g>
+  </g>
+</svg>`;
+
+        const container = document.getElementById('icons');
+        const canvases = {};
+
+        sizes.forEach(size => {
+            const div = document.createElement('div');
+            div.className = 'icon-item';
+
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            canvases[size] = canvas;
+
+            const label = document.createElement('div');
+            label.textContent = `${size}x${size}`;
+
+            const link = document.createElement('a');
+            link.textContent = 'Scarica';
+            link.href = '#';
+            link.onclick = (e) => {
+                e.preventDefault();
+                downloadIcon(size);
+            };
+
+            div.appendChild(canvas);
+            div.appendChild(label);
+            div.appendChild(link);
+            container.appendChild(div);
+
+            // Render SVG to canvas
+            const img = new Image();
+            const blob = new Blob([svgContent], {type: 'image/svg+xml'});
+            const url = URL.createObjectURL(blob);
+
+            img.onload = () => {
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, size, size);
+                URL.revokeObjectURL(url);
+            };
+            img.src = url;
+        });
+
+        function downloadIcon(size) {
+            const canvas = canvases[size];
+            const link = document.createElement('a');
+            link.download = `icon-${size}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function downloadAll() {
+            sizes.forEach((size, index) => {
+                setTimeout(() => downloadIcon(size), index * 200);
+            });
+        }
+    </script>
+</body>
+</html>
