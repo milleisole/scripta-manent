@@ -1,4 +1,4 @@
-# miserve — Technical Documentation
+# Scripta Manent — Technical Documentation
 
 ## Tech Stack
 
@@ -16,7 +16,7 @@ No frameworks, no build tools, no dependencies hell. Just clean, modern JavaScri
 ## Project Structure
 
 ```
-miserve/
+scripta-manent/
 ├── index.html
 ├── manifest.json
 ├── sw.js                    # Service Worker (offline support)
@@ -57,11 +57,11 @@ miserve/
 
 ## Data Structure on Google Drive
 
-When you connect miserve to your Google Drive, it creates this folder structure:
+When you connect scripta-manent to your Google Drive, it creates this folder structure:
 
 ```
-miserve/
-├── miserve.json             # Global index + settings
+scripta-manent/
+├── scripta-manent.json             # Global index + settings
 ├── vault.enc                # Encrypted master key (DEK)
 ├── search-index.json        # Full-text search index
 ├── notes/
@@ -85,7 +85,7 @@ miserve/
 
 ## JSON Schemas
 
-### miserve.json (Global Index)
+### scripta-manent.json (Global Index)
 
 ```json
 {
@@ -156,7 +156,7 @@ miserve/
 
 ## Encryption System
 
-miserve uses a two-key architecture for secure, recoverable encryption.
+scripta-manent uses a two-key architecture for secure, recoverable encryption.
 
 ### Keys
 
@@ -259,7 +259,7 @@ The index lives on Drive and is loaded once per session. Searches are instant be
 ```javascript
 navigator.share({
   files: [file],
-  title: 'Document from miserve',
+  title: 'Document from scripta-manent',
   text: 'Here is the file'
 })
 ```
@@ -281,7 +281,7 @@ Opens native share sheet on mobile — user chooses their preferred app (email, 
 https://www.googleapis.com/auth/drive.file
 ```
 
-This scope allows access **only** to files created by miserve, not the user's entire Drive. More privacy, fewer permissions.
+This scope allows access **only** to files created by scripta-manent, not the user's entire Drive. More privacy, fewer permissions.
 
 ### API Endpoints Used
 
@@ -328,8 +328,8 @@ The `storage-interface.js` defines a common interface. Each provider implements 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/miserve.git
-cd miserve
+git clone https://github.com/yourusername/scripta-manent.git
+cd scripta-manent
 ```
 
 ### 2. Configure Google Cloud Console
@@ -351,7 +351,7 @@ Edit `js/config.js`:
 export const CONFIG = {
   GOOGLE_CLIENT_ID: 'your-client-id.apps.googleusercontent.com',
   GOOGLE_SCOPES: 'https://www.googleapis.com/auth/drive.file',
-  ROOT_FOLDER_NAME: 'miserve'
+  ROOT_FOLDER_NAME: 'scripta-manent'
 };
 ```
 
