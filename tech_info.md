@@ -17,45 +17,82 @@ No frameworks, no build tools, no dependencies hell. Just clean, modern JavaScri
 
 ```
 scripta-manent/
-├── index.html
-├── manifest.json
-├── sw.js                    # Service Worker (offline support)
-├── css/
-│   └── style.css
-├── js/
-│   ├── app.js               # Entry point
-│   ├── config.js            # Google API configuration
-│   ├── storage/
-│   │   ├── storage-interface.js   # Abstract interface
-│   │   └── google-drive.js        # Google Drive implementation
-│   ├── crypto/
-│   │   ├── encryption.js    # AES-256-GCM encryption
-│   │   └── key-manager.js   # DEK/KEK management
-│   ├── models/
-│   │   ├── note.js
-│   │   ├── file-item.js
-│   │   └── folder.js
-│   ├── services/
-│   │   ├── notes-service.js
-│   │   ├── files-service.js
-│   │   ├── search-service.js
-│   │   ├── trash-service.js
-│   │   └── share-service.js
-│   ├── ui/
-│   │   ├── components/
-│   │   ├── views/
-│   │   └── router.js
-│   └── utils/
-│       ├── hash.js          # SHA-256 hashing
-│       ├── qrcode.js        # QR code generation
-│       └── markdown.js      # Markdown parser
-└── assets/
-    └── icons/
+├── README.md
+├── TECH_INFO.md
+├── INSTRUCTIONS.md
+├── LICENSE
+├── build.sh                     # Script to create releases
+├── src/                         # Source code (development)
+│   ├── index.html
+│   ├── manifest.json
+│   ├── sw.js                    # Service Worker (offline support)
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   ├── app.js               # Entry point
+│   │   ├── config.js            # Google API configuration
+│   │   ├── storage/
+│   │   │   ├── storage-interface.js   # Abstract interface
+│   │   │   └── google-drive.js        # Google Drive implementation
+│   │   ├── crypto/
+│   │   │   ├── encryption.js    # AES-256-GCM encryption
+│   │   │   └── key-manager.js   # DEK/KEK management
+│   │   ├── models/
+│   │   │   ├── note.js
+│   │   │   ├── file-item.js
+│   │   │   └── folder.js
+│   │   ├── services/
+│   │   │   ├── notes-service.js
+│   │   │   ├── files-service.js
+│   │   │   ├── search-service.js
+│   │   │   ├── trash-service.js
+│   │   │   └── share-service.js
+│   │   ├── ui/
+│   │   │   ├── components/
+│   │   │   ├── views/
+│   │   │   └── router.js
+│   │   └── utils/
+│   │       ├── hash.js          # SHA-256 hashing
+│   │       ├── qrcode.js        # QR code generation
+│   │       └── markdown.js      # Markdown parser
+│   └── assets/
+│       └── icons/
+└── dist/                        # Stable releases (distribution)
+    └── v1.0/
+        ├── index.html
+        ├── manifest.json
+        ├── sw.js
+        ├── css/
+        ├── js/
+        └── assets/
+```
+
+### Development Workflow
+
+| Folder | Purpose |
+|--------|---------|
+| `src/` | Active development, work here |
+| `dist/vX.Y/` | Stable releases for distribution |
+
+**Creating a release:**
+
+```bash
+./build.sh v1.0
+```
+
+This copies `src/` to `dist/v1.0/`, ready for deployment.
+
+### Deployment URL
+
+The app is hosted on GitHub Pages:
+
+```
+https://milleisole.github.io/scripta-manent/dist/v1.0/index.html
 ```
 
 ---
 
-## Data Structure on (your) Google Drive
+## Data Structure on Google Drive
 
 When you connect scripta-manent to your Google Drive, it creates this folder structure:
 

@@ -6,6 +6,24 @@
 
 ## English
 
+### How to Access Scripta Manent
+
+**Option 1: Short link (recommended)**
+
+Open this link on your phone or computer:
+
+👉 **[smnt.to](https://smnt.to)** *(example — replace with your actual short URL)*
+
+**Option 2: Direct link**
+
+```
+https://milleisole.github.io/scripta-manent/dist/v1.0/index.html
+```
+
+The app runs entirely in your browser. No download required — just open the link and start using it.
+
+---
+
 ### Part 1: Connect Your Google Drive
 
 Before using Scripta Manent, you need to allow the app to access your Google Drive. This is a one-time setup.
@@ -104,6 +122,24 @@ Now you can open Scripta Manent like any other app!
 ---
 
 ## Italiano
+
+### Come Accedere a Scripta Manent
+
+**Opzione 1: Link breve (consigliato)**
+
+Apri questo link sul telefono o computer:
+
+👉 **[smnt.to](https://smnt.to)** *(esempio — sostituisci con il tuo URL breve)*
+
+**Opzione 2: Link diretto**
+
+```
+https://milleisole.github.io/scripta-manent/dist/v1.0/index.html
+```
+
+L'app funziona interamente nel browser. Non serve scaricare nulla — apri il link e inizia a usarla.
+
+---
 
 ### Parte 1: Collega il tuo Google Drive
 
@@ -204,6 +240,24 @@ Ora puoi aprire Scripta Manent come qualsiasi altra app!
 
 ## Español
 
+### Cómo Acceder a Scripta Manent
+
+**Opción 1: Enlace corto (recomendado)**
+
+Abre este enlace en tu teléfono u ordenador:
+
+👉 **[smnt.to](https://smnt.to)** *(ejemplo — reemplaza con tu URL corta)*
+
+**Opción 2: Enlace directo**
+
+```
+https://milleisole.github.io/scripta-manent/dist/v1.0/index.html
+```
+
+La app funciona completamente en tu navegador. No necesitas descargar nada — solo abre el enlace y empieza a usarla.
+
+---
+
 ### Parte 1: Conecta tu Google Drive
 
 Antes de usar Scripta Manent, necesitas permitir que la app acceda a tu Google Drive. Es una configuración que solo se hace una vez.
@@ -302,6 +356,24 @@ Puedes instalar Scripta Manent en tu teléfono u ordenador para acceso rápido.
 ---
 
 ## Français
+
+### Comment Accéder à Scripta Manent
+
+**Option 1 : Lien court (recommandé)**
+
+Ouvrez ce lien sur votre téléphone ou ordinateur :
+
+👉 **[smnt.to](https://smnt.to)** *(exemple — remplacez par votre URL courte)*
+
+**Option 2 : Lien direct**
+
+```
+https://milleisole.github.io/scripta-manent/dist/v1.0/index.html
+```
+
+L'app fonctionne entièrement dans votre navigateur. Pas besoin de télécharger quoi que ce soit — ouvrez simplement le lien et commencez à l'utiliser.
+
+---
 
 ### Partie 1 : Connecter votre Google Drive
 
@@ -402,6 +474,24 @@ Maintenant vous pouvez ouvrir Scripta Manent comme n'importe quelle autre app !
 
 ## Deutsch
 
+### Wie man auf Scripta Manent zugreift
+
+**Option 1: Kurzlink (empfohlen)**
+
+Öffnen Sie diesen Link auf Ihrem Handy oder Computer:
+
+👉 **[smnt.to](https://smnt.to)** *(Beispiel — ersetzen Sie durch Ihre tatsächliche kurze URL)*
+
+**Option 2: Direkter Link**
+
+```
+https://milleisole.github.io/scripta-manent/dist/v1.0/index.html
+```
+
+Die App läuft vollständig in Ihrem Browser. Kein Download erforderlich — öffnen Sie einfach den Link und beginnen Sie mit der Nutzung.
+
+---
+
 ### Teil 1: Google Drive verbinden
 
 Bevor Sie Scripta Manent verwenden können, müssen Sie der App erlauben, auf Ihr Google Drive zuzugreifen. Dies ist eine einmalige Einrichtung.
@@ -500,6 +590,24 @@ Jetzt können Sie Scripta Manent wie jede andere App öffnen!
 ---
 
 ## 中文
+
+### 如何访问 Scripta Manent
+
+**选项 1：短链接（推荐）**
+
+在手机或电脑上打开此链接：
+
+👉 **[smnt.to](https://smnt.to)** *（示例——请替换为你的实际短链接）*
+
+**选项 2：直接链接**
+
+```
+https://milleisole.github.io/scripta-manent/dist/v1.0/index.html
+```
+
+应用完全在浏览器中运行。无需下载——只需打开链接即可开始使用。
+
+---
 
 ### 第一部分：连接你的 Google Drive
 
